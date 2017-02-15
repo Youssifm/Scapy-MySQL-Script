@@ -52,7 +52,6 @@ INTERFACE   	= 'wlan1'
 
 class ScapyScan:
 
-    s_close = False
     hostname = ''
 
     # Initialization function
