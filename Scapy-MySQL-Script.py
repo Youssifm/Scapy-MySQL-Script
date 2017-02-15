@@ -12,27 +12,27 @@
 #   Version:    1.0                                                                             #
 #                                                                                               #
 #   Description:                                                                                #
-#																								#
-#       This script uses the Scapy python API to sniff probe requests then						#
-#	uploads the probe request to a SQL server. The script is split into							#
-#	four threads. The main thread the three "worker" threads that do the						#
-#	heavy lifting. The Scapy worker thread sniffs for probe request and							#
-#	passes the probe requests to the data handler. The data handler								#
-#	puts the data into a dictionary (aka hash table) to hold the data for						#
-#	the specified WINDOW_TIME. This decreases the amount of traffic to the						#
-#	SQL server. Holding the data also enables us to account for duplicates						#
-#	within the specified WINDOW_TIME. After the specified WINDOW_TIME the						#
-#	is passes to the SQL thread to be uploaded to the SQL database.								#
+#												#														#
+#       This script uses the Scapy python API to sniff probe requests then			#
+#	uploads the probe request to a SQL server. The script is split into			#
+#	four threads. The main thread the three "worker" threads that do the			#
+#	heavy lifting. The Scapy worker thread sniffs for probe request and			#
+#	passes the probe requests to the data handler. The data handler				#
+#	puts the data into a dictionary (aka hash table) to hold the data for			#
+#	the specified WINDOW_TIME. This decreases the amount of traffic to the			#
+#	SQL server. Holding the data also enables us to account for duplicates			#
+#	within the specified WINDOW_TIME. After the specified WINDOW_TIME the			#
+#	is passes to the SQL thread to be uploaded to the SQL database.				#
 #                                                                                               #
 #   Notes:                                                                                      #
 #                                                                                               #
 #   Issues:                                                                                     #
 #                                                                                               #
-#   Change Log:  																				#
-#		                                                                                		#
+#   Change Log:  										#
+#		                                                                                #
 #       v1.0 (02/06/2017)                                                                       #
-#			1. First iteration		                                               				#
-#																								#
+#			1. First iteration		                                        #
+#												#												#
 # --------------------------------------------------------------------------------------------- #
 
 import datetime
@@ -117,14 +117,14 @@ class Data_Handler():
             while True:                                                 # nested while loop that runs for the timeout mins specified above.
 
                 q_data = kismet_queue.get()                             # Get data from the queue. The data is 1 client. (mac, signal_dbm, conn_type, date, time, host_name)
-                mac_key = q_data[0]                          			# Split the mac address so we can use the mac address as a index address for the dictionary
+                mac_key = q_data[0]                          		# Split the mac address so we can use the mac address as a index address for the dictionary
 
                 d[mac_key] = q_data                                 	# Set the mac index address value equal to the queue data which contains the rest of the information on that client
 
                 if(time.time() >= time_window):                         # if it has been X mins put the the mac_array on the SQL queue
 
                     for item in d:                                      # Lopp through each item in the dictionary. each item is 1 clients data.
-                        split = d[item]                      			# Split the data for each client so we can append the data to the mac_array as a tuple.
+                        split = d[item]                      		# Split the data for each client so we can append the data to the mac_array as a tuple.
                         mac_array.append((split[0], split[1], split[2], split[3]))      # append it.
 			 
                     break                                               # Break out of the nested while loop. This will allow the main while loop to put the data to the sql_queue
@@ -238,7 +238,7 @@ if __name__ == '__main__':
 	db_user         = 'user'
 	db_passwd       = 'passwd'
 	db_database     = 'SQL-db'
-	db_table		= 'SQL-db-table'
+	db_table	= 'SQL-db-table'
 
 	scapy_scanner   = ScapyScan()
 	data_handler    = Data_Handler()
