@@ -37,7 +37,7 @@
 
 import datetime
 import MySQLdb
-import netaddr
+#import netaddr
 import os
 import Queue
 import socket
