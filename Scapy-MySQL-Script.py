@@ -12,7 +12,7 @@
 #   Version:    1.0                                                                             #
 #                                                                                               #
 #   Description:                                                                                #
-#												#														#
+#												#
 #       This script uses the Scapy python API to sniff probe requests then			#
 #	uploads the probe request to a SQL server. The script is split into			#
 #	four threads. The main thread the three "worker" threads that do the			#
@@ -32,7 +32,7 @@
 #		                                                                                #
 #       v1.0 (02/06/2017)                                                                       #
 #			1. First iteration		                                        #
-#												#												#
+#												#
 # --------------------------------------------------------------------------------------------- #
 
 import datetime
