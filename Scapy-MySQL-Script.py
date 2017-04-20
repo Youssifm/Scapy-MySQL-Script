@@ -232,12 +232,12 @@ if __name__ == '__main__':
 
 	workerThreads   = []
 
-	db_host         = 'SQL-Server'
-	db_port         = 3306
-	db_user         = 'user'
-	db_passwd       = 'passwd'
-	db_database     = 'SQL-db'
-	db_table	= 'SQL-db-table'
+	db_host         = 'PH_SQL-Server'
+	db_port         = PH_3306
+	db_user         = 'PH_user'
+	db_passwd       = 'PH_passwd'
+	db_database     = 'PH_SQL-db'
+	db_table	= 'PH_SQL-db-table'
 
 	scapy_scanner   = ScapyScan()
 	data_handler    = Data_Handler()
