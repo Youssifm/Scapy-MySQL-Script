@@ -237,7 +237,7 @@ if __name__ == '__main__':
 	db_user         = 'PH_user'
 	db_passwd       = 'PH_passwd'
 	db_database     = 'PH_SQL-db'
-	db_table	= 'PH_SQL-db-table'
+	db_table	= 'PH_SQL-table'
 
 	scapy_scanner   = ScapyScan()
 	data_handler    = Data_Handler()
