@@ -233,7 +233,7 @@ if __name__ == '__main__':
 	workerThreads   = []
 
 	db_host         = 'PH_SQL-Server'
-	db_port         = PH_3306
+	db_port         = PH_Port
 	db_user         = 'PH_user'
 	db_passwd       = 'PH_passwd'
 	db_database     = 'PH_SQL-db'
